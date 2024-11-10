@@ -5,11 +5,27 @@
             "name": "(Linux) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "",
+            "program": "${workspaceFolder}/build/testbed/testbed",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/build/testbed",
             "environment": []
+        },
+        {
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\build\\testbed\\testbed.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}\\build\\testbed",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "..\\engine;${env:PATH}"
+                }
+            ],
+            "console": "integratedTerminal"
         }
     ]
 }

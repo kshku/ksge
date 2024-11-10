@@ -1,5 +1,5 @@
 #pragma once
 
-void print_hello();
+#include "defines.h"
 
-void dont_print_hello();
+SAPI void print_hello();

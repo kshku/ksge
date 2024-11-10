@@ -2,7 +2,7 @@ CC := clang
 BUILD_DIR := build
 SUBDIRS := engine testbed
 
-export BUILD_DIR := $(shell pwd)/$(BUILD_DIR)
+export BUILD_DIR := $(CURDIR)/$(BUILD_DIR)
 export CC
 
 all: $(BUILD_DIR) $(SUBDIRS)
@@ -11,9 +11,9 @@ clean:
 	@echo "Cleaning..."
 	@rm -rf $(BUILD_DIR)
 
-$(SUBDIRS):
+$(SUBDIRS): | $(BUILD_DIR)
 	@$(MAKE) -C $@ -f Makefile.linux.mak
-	@echo
+	@echo --------------------------------------------
 
 $(BUILD_DIR):
 	@echo "Creating directory $(BUILD_DIR)..."

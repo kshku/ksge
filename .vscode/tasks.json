@@ -124,25 +124,6 @@
                 "$gcc"
             ],
             "detail": "Task to build testbed"
-        },
-        {
-            "label": "Run Testbed",
-            "type": "shell",
-            "linux": {
-                "command": "${workspaceFolder}/build/testbed/testbed"
-            },
-            "windows": {
-                "command": "${workspaceFolder}\\build\\testbed\\testbed.exe"
-            },
-            "options": {
-                "cwd": "${workspaceFolder}/build/testbed"
-            },
-            "group": {
-                "kind": "test",
-                "isDefault": false
-            },
-            "problemMatcher": [],
-            "detail": "Task to run testbed"
         }
     ]
 }
