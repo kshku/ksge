@@ -1,0 +1,148 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build all",
+            "type": "shell",
+            "linux": {
+                "command": "make",
+                "args": [
+                    "-f",
+                    "Makefile.linux.mak",
+                    "all"
+                ]
+            },
+            "windows": {
+                "command": "make",
+                "args": [
+                    "-f",
+                    "Makefile.windows.mak",
+                    "all"
+                ]
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Tast to build all targets"
+        },
+        {
+            "label": "Clean all",
+            "type": "shell",
+            "linux": {
+                "command": "make",
+                "args": [
+                    "-f",
+                    "Makefile.linux.mak",
+                    "clean"
+                ]
+            },
+            "windows": {
+                "command": "make",
+                "args": [
+                    "-f",
+                    "Makefile.windows.mak",
+                    "clean"
+                ]
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "none",
+                "isDefault": false
+            },
+            "detail": "Task to clean",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Engine",
+            "type": "shell",
+            "linux": {
+                "command": "make",
+                "args": [
+                    "-f",
+                    "Makefile.linux.mak",
+                    "engine"
+                ]
+            },
+            "windows": {
+                "command": "make",
+                "args": [
+                    "-f",
+                    "Makefile.windows.mak",
+                    "engine"
+                ]
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Task to build engine"
+        },
+        {
+            "label": "Build Testbed",
+            "type": "shell",
+            "linux": {
+                "command": "make",
+                "args": [
+                    "-f",
+                    "Makefile.linux.mak",
+                    "testbed"
+                ]
+            },
+            "windows": {
+                "command": "make",
+                "args": [
+                    "-f",
+                    "Makefile.windows.mak",
+                    "testbed"
+                ]
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Task to build testbed"
+        },
+        {
+            "label": "Run Testbed",
+            "type": "shell",
+            "linux": {
+                "command": "${workspaceFolder}/build/testbed/testbed"
+            },
+            "windows": {
+                "command": "${workspaceFolder}\\build\\testbed\\testbed.exe"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/build/testbed"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "problemMatcher": [],
+            "detail": "Task to run testbed"
+        }
+    ]
+}
