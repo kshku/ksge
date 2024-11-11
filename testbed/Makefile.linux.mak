@@ -4,7 +4,7 @@ SRCS := $(shell find $(SRCDIR) -type f -name "*.c")
 CFLAGS := -Wall -Wextra -g
 INCLUDES := -I ../engine/src
 LDFLAGS := -L $(BUILD_DIR)/engine -lksge -Wl,-rpath=../engine -g
-DEFINES :=
+DEFINES := -S_DEBUG
 
 BUILD_DIR := $(BUILD_DIR)/testbed
 OBJS := $(SRCS:%.c=$(BUILD_DIR)/%.o)

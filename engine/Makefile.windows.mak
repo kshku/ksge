@@ -4,9 +4,9 @@ TARGET := ksge.dll
 SRCDIR := src
 SRCS := $(call rwildcard,$(SRCDIR)/,*.c)
 CFLAGS := -fdeclspec -Wall -Wextra -g
-INCLUDES :=
+INCLUDES := -I src
 LDFLAGS := -shared -g
-DEFINES := -DS_EXPORTS
+DEFINES := -DS_EXPORTS -DS_DEBUG
 
 BUILD_DIR := $(BUILD_DIR)/engine
 OBJS := $(SRCS:%.c=$(BUILD_DIR)/%.o)

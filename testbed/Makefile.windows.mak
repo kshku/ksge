@@ -6,7 +6,7 @@ SRCS := $(call rwildcard,$(SRCDIR)/,*.c)
 CFLAGS := -fdeclspec -Wall -Wextra -g
 INCLUDES := -I ../engine/src
 LDFLAGS := -L $(BUILD_DIR)/engine -lksge -g
-DEFINES :=
+DEFINES := -S_DEBUG
 
 BUILD_DIR := $(BUILD_DIR)/testbed
 OBJS := $(SRCS:%.c=$(BUILD_DIR)/%.o)

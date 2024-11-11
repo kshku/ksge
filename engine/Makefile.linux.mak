@@ -2,9 +2,9 @@ TARGET := libksge.so
 SRCDIR := src
 SRCS := $(shell find $(SRCDIR) -type f -name "*.c")
 CFLAGS := -fvisibility=hidden -fPIC -Wall -Wextra -g
-INCLUDES :=
+INCLUDES := -I src
 LDFLAGS := -shared -g
-DEFINES := -DS_EXPORTS
+DEFINES := -DS_EXPORTS -DS_DEBUG
 
 BUILD_DIR := $(BUILD_DIR)/engine
 OBJS := $(SRCS:%.c=$(BUILD_DIR)/%.o)
