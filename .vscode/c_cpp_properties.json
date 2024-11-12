@@ -6,8 +6,7 @@
                 "${workspaceFolder}/engine/src/*"
             ],
             "defines": [
-                "S_EXPORTS",
-                "S_DEBUG"
+                "S_EXPORTS"
             ],
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
