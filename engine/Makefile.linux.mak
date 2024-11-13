@@ -2,7 +2,7 @@ TARGET := libksge.so
 SRCDIR := src
 SRCS := $(shell find $(SRCDIR) -type f -name "*.c")
 CFLAGS += -fvisibility=hidden -fPIC
-INCLUDES :=
+INCLUDES := -I $(SRCDIR)
 LDFLAGS += -shared
 DEFINES += -DS_EXPORTS
 

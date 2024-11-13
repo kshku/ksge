@@ -6,7 +6,8 @@
                 "${workspaceFolder}/engine/src/*"
             ],
             "defines": [
-                "S_EXPORTS"
+                "S_EXPORTS",
+                "S_DEBUG"
             ],
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
@@ -19,7 +20,8 @@
                 "${workspaceFolder}\\engine\\src\\*"
             ],
             "defines": [
-                "S_EXPORTS"
+                "S_EXPORTS",
+                "S_DEBUG"
             ],
             // "compilerPath": "C:/Program Files/LLVM/bin/clang-cl.exe",
             "cStandard": "c17",
