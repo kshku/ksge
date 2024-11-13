@@ -1,9 +1,16 @@
 CC := clang
+CFLAGS := -Wall -Wextra -g
+DEFINES := -DS_DEBUG
+LDFLAGS := -g
 BUILD_DIR := build
+
 SUBDIRS := engine testbed
 
 export BUILD_DIR := $(CURDIR)/$(BUILD_DIR)
 export CC
+export CFLAGS
+export LDFLAGS
+export DEFINES
 
 all: $(BUILD_DIR) $(SUBDIRS)
 

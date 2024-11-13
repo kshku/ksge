@@ -1,16 +1,15 @@
 TARGET := testbed
 SRCDIR := src
 SRCS := $(shell find $(SRCDIR) -type f -name "*.c")
-CFLAGS := -Wall -Wextra -g
+CFLAGS +=
 INCLUDES := -I ../engine/src
-LDFLAGS := -L $(BUILD_DIR)/engine -lksge -Wl,-rpath=../engine -g
-DEFINES :=
+LDFLAGS += -L $(BUILD_DIR)/engine -lksge -Wl,-rpath=$(BUILD_DIR)/engine
+DEFINES +=
 
-BUILD_DIR := $(BUILD_DIR)/testbed
-OBJS := $(SRCS:%.c=$(BUILD_DIR)/%.o)
+OBJS := $(SRCS:%.c=$(BUILD_DIR)/testbed/%.o)
 DEPS := $(OBJS:.o=.d)
 CFLAGS += -MMD -MP $(INCLUDES) $(DEFINES)
-TARGET := $(BUILD_DIR)/$(TARGET)
+TARGET := $(BUILD_DIR)/testbed/$(TARGET)
 DIRS := $(sort $(dir $(OBJS)))
 
 all: $(TARGET)
@@ -19,7 +18,7 @@ $(TARGET): $(OBJS)
 	@echo "Linking $@..."
 	@$(CC) $^ -o $@ $(LDFLAGS)
 
-$(BUILD_DIR)/%.o: %.c | $(DIRS)
+$(BUILD_DIR)/testbed/%.o: %.c | $(DIRS)
 	@echo "Compiling $<..."
 	@$(CC) $(CFLAGS) -c $< -o $@
 
