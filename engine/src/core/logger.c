@@ -7,32 +7,32 @@ static const char *log_level_strings[] = {
     "[FATAL]: ", "[ERROR]: ", "[WARN]: ", "[INFO]: ", "[DEBUG]: ", "[TRACE]: "};
 
 /**
- * @brief Initializes the logger
+ * @brief Initializes the logger.
  *
  * @param file The file to log to
  *
- * @return true if the logger was initialized successfully
+ * @return true if the logger was initialized successfully.
  */
-b8 initialize_logger(const char *file) {
+b8 initializeLogger(const char *file) {
     UNUSED(file);
     // TODO: Logging to file, aynchronous logging, etc.
     return true;
 }
 
 /**
- * @brief Shuts down the logger
+ * @brief Shuts down the logger.
  */
-void shutdown_logger() {
+void shutdownLogger() {
 }
 
 /**
- * @brief Logs a message
+ * @brief Logs a message.
  *
  * @param level Log level (one of the values of enum LogLevel)
  * @param msg Format string message
  * @param ... Arguments for the format string
  */
-void log_message(LogLevel level, const char *msg, ...) {
+void logMessage(LogLevel level, const char *msg, ...) {
     // TODO: Log to file, timestamp, etc.
     // TODO: Also while logging to console colored ouput (platform specific)
 

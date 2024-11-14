@@ -1,10 +1,11 @@
 #pragma once
 
 #include "application_types.h"
+#include "core/engine.h"
 #include "core/logger.h"
 #include "defines.h"
 
-extern b8 create_application(Application *app_inst);
+extern b8 createApplication(Application *app_inst);
 
 int main(int argc, char *argv[]) {
     UNUSED(argc);
@@ -18,7 +19,7 @@ int main(int argc, char *argv[]) {
 
     Application app_inst = {0};
 
-    if (!create_application(&app_inst)) {
+    if (!createApplication(&app_inst)) {
         SFATAL("Could not create game!");
         return -1;
     }
@@ -29,17 +30,16 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
-    if (!app_inst.initialize(&app_inst)) {
-        SFATAL("Application initialization failed!");
+    if (!initializeEngine(&app_inst)) {
+        SFATAL("Failed to initialize engine!");
         return -1;
     }
 
-    if (!app_inst.update(&app_inst, (f32)0)) {
-        SFATAL("Application update failed!");
-        return -1;
+    if (!runEngine()) {
+        SERROR("runEngine returned false");
     }
 
-    app_inst.terminate(&app_inst);
+    shutdownEngine();
 
     return 0;
 }

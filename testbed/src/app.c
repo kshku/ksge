@@ -4,36 +4,36 @@
 typedef struct AppState {
 } AppState;
 
-b8 app_initialize(Application *app_inst) {
+b8 appInitialize(Application *app_inst) {
     UNUSED(app_inst);
-    SINFO("app_initialize is called");
+    SINFO("appInitialize is called");
     return true;
 }
 
-b8 app_update(Application *app_inst, f32 delta_time) {
+b8 appUpdate(Application *app_inst, f32 delta_time) {
     UNUSED(app_inst);
     UNUSED(delta_time);
-    SINFO("app_update is called");
+    SINFO("appUpdate is called");
     return true;
 }
 
-b8 app_render(Application *app_inst, f32 delta_time) {
+b8 appRender(Application *app_inst, f32 delta_time) {
     UNUSED(app_inst);
     UNUSED(delta_time);
-    SINFO("app_render is called");
+    SINFO("appRender is called");
     return true;
 }
 
-void app_terminate(Application *app_inst) {
+void appTerminate(Application *app_inst) {
     UNUSED(app_inst);
-    SINFO("app_terminate is called");
+    SINFO("appTerminate is called");
 }
 
-b8 create_application(Application *app_inst) {
-    app_inst->initialize = app_initialize;
-    app_inst->update = app_update;
-    app_inst->render = app_render;
-    app_inst->terminate = app_terminate;
+b8 createApplication(Application *app_inst) {
+    app_inst->initialize = appInitialize;
+    app_inst->update = appUpdate;
+    app_inst->render = appRender;
+    app_inst->terminate = appTerminate;
 
     app_inst->state = NULL;
 

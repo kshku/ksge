@@ -35,24 +35,24 @@ typedef enum LogLevel {
     LOG_LEVEL_TRACE
 } LogLevel;
 
-b8 initialize_logger(const char *file);
+b8 initializeLogger(const char *file);
 
-void shutdown_logger();
+void shutdownLogger();
 
-SAPI void log_message(LogLevel level, const char *msg, ...);
+SAPI void logMessage(LogLevel level, const char *msg, ...);
 
 // Logging macros
-#define SFATAL(msg, ...) log_message(LOG_LEVEL_FATAL, msg, ##__VA_ARGS__)
+#define SFATAL(msg, ...) logMessage(LOG_LEVEL_FATAL, msg, ##__VA_ARGS__)
 
-#define SERROR(msg, ...) log_message(LOG_LEVEL_ERROR, msg, ##__VA_ARGS__)
+#define SERROR(msg, ...) logMessage(LOG_LEVEL_ERROR, msg, ##__VA_ARGS__)
 
-#define SWARN(msg, ...) log_message(LOG_LEVEL_WARN, msg, ##__VA_ARGS__)
+#define SWARN(msg, ...) logMessage(LOG_LEVEL_WARN, msg, ##__VA_ARGS__)
 
-#define SINFO(msg, ...) log_message(LOG_LEVEL_INFO, msg, ##__VA_ARGS__)
+#define SINFO(msg, ...) logMessage(LOG_LEVEL_INFO, msg, ##__VA_ARGS__)
 
-#define SDEBUG(msg, ...) log_message(LOG_LEVEL_DEBUG, msg, ##__VA_ARGS__)
+#define SDEBUG(msg, ...) logMessage(LOG_LEVEL_DEBUG, msg, ##__VA_ARGS__)
 
-#define STRACE(msg, ...) log_message(LOG_LEVEL_TRACE, msg, ##__VA_ARGS__)
+#define STRACE(msg, ...) logMessage(LOG_LEVEL_TRACE, msg, ##__VA_ARGS__)
 
 #if LOG_WARN_ENABLED == 0
     #define SWARN(msg, ...)
