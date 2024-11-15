@@ -14,6 +14,10 @@ DIRS := $(sort $(dir $(OBJS)))
 
 all: $(TARGET)
 
+clean:
+	@echo "Cleaning testbed..."
+	@rm -rf $(BUILD_DIR)/testbed
+
 $(TARGET): $(OBJS)
 	@echo "Linking $@..."
 	@$(CC) $^ -o $@ $(LDFLAGS)
@@ -26,6 +30,6 @@ $(DIRS):
 	@echo "Creating directory $@..."
 	@mkdir -p $@
 
-.PHONY: all
+.PHONY: all clean
 
 -include $(DEPS)

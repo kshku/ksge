@@ -1,3 +1,6 @@
+SHELL := powershell.exe
+.SHELLFLAGS := -NoProfile -NoInteractive -Command
+
 rwildcard = $(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
 
 TARGET := ksge.dll
@@ -14,20 +17,24 @@ CFLAGS += -MMD -MP $(INCLUDES) $(DEFINES)
 TARGET := $(BUILD_DIR)/engine/$(TARGET)
 DIRS := $(sort $(dir $(OBJS)))
 
-all: $(TARGET)
+all: $(DIRS) $(TARGET)
+
+clean:
+	@Write-Output "Cleaning engine..."
+	@if (Test-Path $(BUILD_DIR)/engine) { Remove-Item -Recurse -Force $(BUILD_DIR)/engine }
 
 $(TARGET): $(OBJS)
-	@echo "Linking $@..."
+	@Write-Output "Linking $@..."
 	@$(CC) $(LDFLAGS) $^ -o $@
 
-$(BUILD_DIR)/engine/%.o: %.c | $(DIRS)
-	@echo "Compiling $<..."
+$(BUILD_DIR)/engine/%.o: %.c
+	@Write-Output "Compiling $<..."
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(DIRS):
-	@echo "Creating directory $@..."
-	@mkdir $(subst /,\,$@)
+	@Write-Output "Creating directory $@..."
+	@if (!(Test-Path $@)) { New-Item -ItemType Directory -Path $@ | Out-Null }
 
-.PHONY: all
+.PHONY: all clean
 
 -include $(DEPS)

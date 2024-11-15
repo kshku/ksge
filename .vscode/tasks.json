@@ -95,6 +95,35 @@
             "detail": "Task to build engine"
         },
         {
+            "label": "Clean Engine",
+            "type": "shell",
+            "linux": {
+                "command": "make",
+                "args": [
+                    "-f",
+                    "Makefile.linux.mak",
+                    "clean-engine"
+                ]
+            },
+            "windows": {
+                "command": "make",
+                "args": [
+                    "-f",
+                    "Makefile.windows.mak",
+                    "clean-engine"
+                ]
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "none",
+                "isDefault": false
+            },
+            "detail": "Task to clean engine",
+            "problemMatcher": []
+        },
+        {
             "label": "Build Testbed",
             "type": "shell",
             "linux": {
@@ -124,6 +153,35 @@
                 "$gcc"
             ],
             "detail": "Task to build testbed"
+        },
+        {
+            "label": "Clean Testbed",
+            "type": "shell",
+            "linux": {
+                "command": "make",
+                "args": [
+                    "-f",
+                    "Makefile.linux.mak",
+                    "clean-testbed"
+                ]
+            },
+            "windows": {
+                "command": "make",
+                "args": [
+                    "-f",
+                    "Makefile.windows.mak",
+                    "clean-testbed"
+                ]
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "none",
+                "isDefault": false
+            },
+            "detail": "Task to clean testbed",
+            "problemMatcher": []
         }
     ]
 }
