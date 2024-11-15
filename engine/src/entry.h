@@ -35,8 +35,8 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
-    if (!runEngine()) {
-        SERROR("runEngine returned false");
+    if (!engineRun()) {
+        SERROR("engineRun returned false");
     }
 
     shutdownEngine();

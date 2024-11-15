@@ -20,7 +20,7 @@ static EngineState engine_state;
  *
  * @note If some of the subsystem, like logger, failed to initialize, it is not
  * conidered as failure to initialize engine. In such cases an error message
- * will be given and this function returns true
+ * will be given and this function returns true.
  */
 b8 initializeEngine(Application *app_inst) {
     if (engine_state.is_running) {
@@ -49,7 +49,7 @@ b8 initializeEngine(Application *app_inst) {
 }
 
 /**
- * @brief Shutdown the engine
+ * @brief Shutdown the engine.
  */
 void shutdownEngine() {
     // Should be called first, i.e., before terminating subsystems
@@ -63,7 +63,7 @@ void shutdownEngine() {
  *
  * @return true if terminated normally, false if terminated abnormally.
  */
-b8 runEngine() {
+b8 engineRun() {
     b8 ret_val = true;
     while (engine_state.is_running) {
         if (!engine_state.app_inst->update(engine_state.app_inst, (f32)0)) {
